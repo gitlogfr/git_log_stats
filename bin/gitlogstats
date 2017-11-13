@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+require 'git_log_stats'
+require 'log_analyzer'
+
+options = {}
+
+optparse = OptionParser.new do |opts|
+  opts.banner = 'Usage: gitlogstats --file=GITLOGFILE'
+
+  opts.on('--file=FILE', 'process a file') do |file|
+    options[:file] = file
+    options[:action] = :process
+  end
+end
+
+begin
+  optparse.parse!
+  if :process == options[:action]
+    raise OptionParser::InvalidOption, 'File does not exists' unless
+      File.exist? options[:file]
+
+    analyzer = GitLogStats::LogAnalyzer.new options[:file]
+    analyzer.process_log_file
+    exit
+  end
+  raise OptionParser::MissingArgument.new, 'invalid usage'
+rescue OptionParser::InvalidOption, OptionParser::MissingArgument => exception
+  puts exception.to_s
+  puts optparse
+  exit
+end
