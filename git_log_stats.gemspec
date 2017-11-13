@@ -7,11 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = 'git_log_stats'
   spec.version       = GitLogStats::VERSION
   spec.authors       = ['Simon']
-  spec.email         = ['sim.w80@gmail.com']
 
   spec.summary       = 'todo'
   spec.description   = 'todo'
-  spec.homepage      = ''
+  spec.homepage      = 'https://gitlog.fr/git_log_stats'
   spec.license       = 'MIT'
 
   spec.bindir        = 'bin'
