@@ -1,30 +1,54 @@
 # GitLogStats
 
-Get to know the company you are working for from their git log
+## description
+
+git_log_stats is a gem which computes statistics and various informations about a company from their `git log`.  
+It's goal is to provide you use with useful information when starting a new gig to understand how your working habits will look like in the following months.  
+
+The current version includes:
+- the breakdown of technologies in percentage each developer is working on
+- The date they joined, and left the company
+
+Jump to the [Roadmap](Roadmap) section for new upcoming information.
+
 
 ## Installation
 
 ```ruby
-gem 'git_log_stats'
+gem install 'git_log_stats'
 ```
 
 ## Usage
 
-Generate an input git log file using :
+Generate a git log dump using :
 
-    $ git log -m --stat=90000 --date=iso > file.txt
+    $ git log -m --stat=90000 --date=unix > ~/log.txt
 
 then generate a report with:
 
-    $ gitlogstats --file=data.txt
+    $ gitlogstats --file=/Users/simon/log.txt
 
-## Development
+Multiple dumps can be merged with a new line separator.  
+For instance using something like :
 
-This is an early version, current reports are not considered as valid.
+    $ for f in git_log_*.txt; do (cat "${f}"; echo) >> finalfile.txt; done
+
+## Roadmap
+
+### 0.1.0
+ - Add tests
+ - code cleaning
+
+### 0.2.0
+ - Add turnover statistics
+ - Add statistics about working habits
+     - Do they work on week-ends ?
+     - When does the day starts ?
+     - How often are they "in the rush" ?
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/git_log_stats.
+Bug reports and pull requests are welcome on GitHub at https://github.com/gitlogfr/git_log_stats.git.
 
 
 ## License
