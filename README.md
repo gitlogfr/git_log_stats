@@ -1,4 +1,6 @@
-# GitLogStats
+# GitLogStats ![](https://img.shields.io/gem/dt/git_log_stats.svg)
+
+**⚠️ beta version**  
 
 ## description
 
